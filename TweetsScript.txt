@@ -1,0 +1,9 @@
+LOAD CSV WITH HEADERS FROM "file:///clean_tweets.csv" AS line
+WITH line
+MERGE (Text:Tweet{text:CASE WHEN line.text IS NOT NULL THEN line.text ELSE ' ' END})
+MERGE (User:User{user:CASE WHEN line.id IS NOT NULL THEN line.id ELSE ' ' END})
+MERGE (Sentiment:Sentiment{value:CASE WHEN line.sentiment IS NOT NULL THEN line.sentiment ELSE ' ' END})
+MERGE (User)-[:Tweets]->(Text)
+MERGE (Text)-[:Sentiment{ 
+    sentiment_value:CASE WHEN line.value IS NOT NULL THEN line.value ELSE ' ' END
+}]->(Sentiment)
