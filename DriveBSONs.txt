@@ -1,4 +1,8 @@
+Bsons y Jsons:
 https://drive.google.com/open?id=1W9sFN4YmIWCi9-Z3qKLXwBjIXRNS8_VH
 
 Stanford:
 https://drive.google.com/drive/folders/1CI_rolDX4kJAm28989cg4XPeD1TPH68_?usp=sharing
+
+Instrucción para correr la api desde la consola:
+java -mx6g -cp \"*\" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -timeout 5000
